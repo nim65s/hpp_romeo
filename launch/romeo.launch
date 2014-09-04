@@ -2,7 +2,7 @@
   <param name="kitchen_description"
     textfile="$(find iai_maps)/urdf/kitchen_area.urdf"/>
   <param name="robot_description"
-	 textfile="$(find romeo_description)/urdf/romeo_small.urdf"/>
+	 textfile="$(find romeo_description)/urdf/romeo.urdf"/>
   <node name="robot_state_publisher"
 	pkg="robot_state_publisher"
 	type="state_publisher"
