@@ -178,7 +178,14 @@ class Robot (Parent):
                 q.append (dof)
         return q
 
-    def getHandConfig (self, side, conf) :
+    def getJointDofValue(self, jointName):
+      i = 0
+      for n in self.jointNames:
+        if (n == jointName):
+          return self.getCurrentConfig()[i + 3]
+        i += 1
+
+    def getHandConfig (self, side, conf):
       q = []
       if side == "left":
         if conf == "open":
@@ -202,28 +209,28 @@ class Robot (Parent):
       return q
 
 
-    def getLeftHandClosedConfig (self) :
+    def getLeftHandClosedConfig (self):
         q = self.getCurrentConfig()
         for n in self.jointNames:
           if (n in self.leftHandClosed):
             q[self.jointNames.index(n) + 3] = self.leftHandClosed[n]
         return q
 
-    def getLeftHandOpenConfig (self) :
+    def getLeftHandOpenConfig (self):
         q = self.getCurrentConfig()
         for n in self.jointNames:
           if (n in self.leftHandOpen):
             q[self.jointNames.index(n) + 3] = self.leftHandOpen[n]
         return q
 
-    def getRightHandClosedConfig (self) :
+    def getRightHandClosedConfig (self):
         q = self.getCurrentConfig()
         for n in self.jointNames:
           if (n in self.rightHandClosed):
             q[self.jointNames.index(n) + 3] = self.rightHandClosed[n]
         return q
 
-    def getRightHandOpenConfig (self) :
+    def getRightHandOpenConfig (self):
         q = self.getCurrentConfig()
         for n in self.jointNames:
           if (n in self.rightHandOpen):
