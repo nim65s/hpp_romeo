@@ -77,9 +77,10 @@ class Robot (Parent):
                    'LHipRoll': 0,
                    'RHipRoll': 0,
                    'RElbowRoll': 0.5,
-                   'base_joint_z': 0.840252,
-                   'base_joint_y': 0,
-                   'base_joint_x': 0,
+                   'base_joint_xyz': (0, 0, 0.840252),
+                   #'base_joint_z': 0.840252,
+                   #'base_joint_y': 0,
+                   #'base_joint_x': 0,
                    'NeckYaw': 0,
                    # Here start romeo -full- specifics
                    'LFinger11': 0,
@@ -162,8 +163,8 @@ class Robot (Parent):
                      "RThumb2": 1.06,
                      "RThumb3": 1.06}
 
-    def __init__ (self, robotName):
-        Parent.__init__ (self, robotName, "freeflyer")
+    def __init__ (self, robotName, load = True):
+        Parent.__init__ (self, robotName, "freeflyer", load)
         self.tf_root = "base_link"
         self.leftAnkle = "l_sole_joint"
         self.rightAnkle = "r_sole_joint"
