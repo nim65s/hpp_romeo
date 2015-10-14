@@ -32,14 +32,8 @@ SET(PROJECT_URL "")
 
 SETUP_PROJECT()
 
-# Catkin stuff
-FIND_PACKAGE(catkin REQUIRED COMPONENTS
-  hpp_ros)
-CATKIN_PACKAGE()
-
 ADD_REQUIRED_DEPENDENCY("hpp-corbaserver >= 3")
 ADD_REQUIRED_DEPENDENCY("romeo_description")
-ADD_REQUIRED_DEPENDENCY("hpp_ros")
 
 INSTALL (FILES
   src/hpp/corbaserver/romeo/robot.py
@@ -47,15 +41,10 @@ INSTALL (FILES
   DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/romeo
   )
 
-SET(CATKIN_PACKAGE_SHARE_DESTINATION
-  ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME})
-
-INSTALL(FILES launch/romeo.launch
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
-  )
-
-INSTALL(FILES rviz/config.rviz
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/rviz
+INSTALL (FILES
+  src/hpp/corbaserver/manipulation/romeo/robot.py
+  src/hpp/corbaserver/manipulation/romeo/__init__.py
+  DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/manipulation/romeo
   )
 
 SETUP_PROJECT_FINALIZE()
