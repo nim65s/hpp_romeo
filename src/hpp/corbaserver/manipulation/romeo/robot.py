@@ -17,7 +17,7 @@
 # hpp_romeo  If not, see
 # <http://www.gnu.org/licenses/>.
 
-from hpp.corbaserver.manipulation.robot import Robot as Parent
+from hpp.corbaserver.manipulation.robot import HumanoidRobot as Parent
 
 ##
 #  Control of robot Romeo in hpp
