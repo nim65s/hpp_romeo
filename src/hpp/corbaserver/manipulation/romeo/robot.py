@@ -136,7 +136,7 @@ class Robot (Parent):
                     "LFinger31": 1.06,
                     "LFinger32": 1.06,
                     "LFinger33": 1.06,
-                    "LThumb1": -1.06,
+                    "LThumb1": 0,
                     "LThumb2": 1.06,
                     "LThumb3": 1.06}
     rightHandClosed = {"RHand": 0.0,
@@ -160,7 +160,7 @@ class Robot (Parent):
                      "RFinger31": 1.06,
                      "RFinger32": 1.06,
                      "RFinger33": 1.06,
-                     "RThumb1": -1.06,
+                     "RThumb1": 0,
                      "RThumb2": 1.06,
                      "RThumb3": 1.06}
 
