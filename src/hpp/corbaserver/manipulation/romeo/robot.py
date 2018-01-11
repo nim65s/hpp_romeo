@@ -43,7 +43,7 @@ class Robot (Parent):
 
     halfSitting = {'LEyePitch': 0,
                    'LWristYaw': -0.3,
-                   'base_joint_SO3': (1, 0, 0, 0),
+                   'root_joint': (0, 0, 0.840252, 0, 0, 0, 1),
                    'LEyeYaw': 0,
                    'RWristYaw': -0.3,
                    'LHipYaw': 0,
@@ -78,10 +78,6 @@ class Robot (Parent):
                    'LHipRoll': 0,
                    'RHipRoll': 0,
                    'RElbowRoll': 0.5,
-                   'base_joint_xyz': (0, 0, 0.840252),
-                   #'base_joint_z': 0.840252,
-                   #'base_joint_y': 0,
-                   #'base_joint_x': 0,
                    'NeckYaw': 0,
                    # Here start romeo -full- specifics
                    'LHand': 0,
@@ -168,8 +164,8 @@ class Robot (Parent):
             load = True):
         Parent.__init__ (self, compositeName, robotName, rootJointType, load)
         self.tf_root = "base_link"
-        self.leftAnkle = "l_sole_joint"
-        self.rightAnkle = "r_sole_joint"
+        self.leftAnkle = "LAnkleRoll"
+        self.rightAnkle = "RAnkleRoll"
 
     def getInitialConfig (self):
         q = self.getCurrentConfig ()
