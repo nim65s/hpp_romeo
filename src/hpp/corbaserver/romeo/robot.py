@@ -78,6 +78,8 @@ class Robot (Parent):
                    'RHipRoll': 0,
                    'RElbowRoll': 0.5,
                    'NeckYaw': 0,
+                   'LHand': 0,
+                   'RHand': 0,
                    # Here start romeo -full- specifics
                    'LFinger11': 0,
                    'LFinger12': 0,
@@ -162,8 +164,8 @@ class Robot (Parent):
     def __init__ (self, robotName, load = True):
         Parent.__init__ (self, robotName, "freeflyer", load)
         self.tf_root = "base_link"
-        self.leftAnkle = "l_sole_joint"
-        self.rightAnkle = "r_sole_joint"
+        self.leftAnkle = "LAnkleRoll"
+        self.rightAnkle = "RAnkleRoll"
 
     def getInitialConfig (self):
         q = []
