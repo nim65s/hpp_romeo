@@ -21,6 +21,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 INCLUDE(cmake/base.cmake)
 INCLUDE(cmake/python.cmake)
+INCLUDE(cmake/hpp.cmake)
 
 FINDPYTHON()
 
@@ -28,9 +29,8 @@ SET(PROJECT_NAME hpp_romeo)
 SET(PROJECT_DESCRIPTION
   "Python and ros launch files for Romeo robot in hpp."
   )
-SET(PROJECT_URL "")
 
-SETUP_PROJECT()
+SETUP_HPP_PROJECT()
 
 ADD_REQUIRED_DEPENDENCY("hpp-corbaserver >= 3")
 ADD_REQUIRED_DEPENDENCY("romeo_description")
