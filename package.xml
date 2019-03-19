@@ -1,12 +1,12 @@
 <package>
   <name>hpp_romeo</name>
-  <version>0.1.0</version>
+  <version>4.4.0</version>
   <description>
     Python and ros launch files for Romeo robot in hpp.
   </description>
   <author>Florent Lamiraux</author>
   <maintainer email="hpp@laas.fr">Florent Lamiraux</maintainer>
-  <license>LGPL v2</license>
+  <license>BSD</license>
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>hpp_ros</build_depend>
   <build_depend>hpp-corbaserver</build_depend>
