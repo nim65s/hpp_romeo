@@ -7,10 +7,10 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 INCLUDE(cmake/base.cmake)
-INCLUDE(cmake/python.cmake)
 INCLUDE(cmake/hpp.cmake)
+INCLUDE(cmake/hpp/python.cmake)
 
-FINDPYTHON()
+HPP_FINDPYTHON()
 
 SET(PROJECT_NAME hpp_romeo)
 SET(PROJECT_DESCRIPTION
