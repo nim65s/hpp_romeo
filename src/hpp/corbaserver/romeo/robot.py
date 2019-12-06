@@ -20,12 +20,8 @@ from hpp.corbaserver.robot import Robot as Parent
 class Robot (Parent):
     ##
     #  Information to retrieve urdf and srdf files.
-    packageName = "romeo_description"
-    ##
-    #  Information to retrieve urdf and srdf files.
-    urdfName = "romeo"
-    urdfSuffix = ""
-    srdfSuffix = ""
+    urdfFilename = "package://romeo_description/urdf/romeo.urdf"
+    srdfFilename = "package://romeo_description/srdf/romeo.srdf"
 
     halfSitting = {'LEyePitch': 0,
                    'LWristYaw': -0.3,
