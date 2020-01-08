@@ -18,7 +18,7 @@ PROJECT(${PROJECT_NAME} ${PROJECT_ARGS})
 FINDPYTHON()
 
 ADD_REQUIRED_DEPENDENCY("hpp-corbaserver >= 3")
-ADD_REQUIRED_DEPENDENCY("romeo_description")
+ADD_REQUIRED_DEPENDENCY("example-robot-data")
 
 INSTALL (FILES
   src/hpp/corbaserver/romeo/robot.py
