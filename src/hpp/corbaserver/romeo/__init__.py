@@ -3,4 +3,4 @@
 # Author: Florent Lamiraux
 #
 
-from .robot import Robot
+from .robot import Robot  # noqa: F401
