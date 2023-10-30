@@ -94,10 +94,6 @@ class Robot(Parent):
         "RThumb1": 0,
         "RThumb2": 0,
         "RThumb3": 0,
-        "LEyeYaw": 0,
-        "LEyePitch": 0,
-        "REyeYaw": 0,
-        "REyePitch": 0,
     }
 
     leftHandClosed = {
