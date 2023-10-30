@@ -2,7 +2,7 @@
 # Copyright (c) 2014, 2020 CNRS Authors: Renaud Viry, Guilhem Saurel
 #
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.10)
 
 set(PROJECT_NAME hpp_romeo)
 set(PROJECT_DESCRIPTION "Python and ros launch files for Romeo robot in hpp.")
