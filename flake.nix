@@ -37,8 +37,11 @@
           ...
         }:
         {
-          packages.default = pkgs.callPackage ./. {
-            hpp-corbaserver = inputs.hpp-corbaserver.packages.${system}.default;
+          packages = {
+            inherit (pkgs) cachix;
+            default = pkgs.callPackage ./. {
+              hpp-corbaserver = inputs.hpp-corbaserver.packages.${system}.default;
+            };
           };
           devShells.default = pkgs.mkShell { inputsFrom = [ self'.packages.default ]; };
         };

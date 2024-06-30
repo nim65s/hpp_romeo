@@ -3,7 +3,7 @@
   cmake,
   hpp-corbaserver,
   pkg-config,
-  python3Packages
+  python3Packages,
 }:
 
 python3Packages.buildPythonPackage {
