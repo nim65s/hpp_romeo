@@ -7,7 +7,12 @@ cmake_minimum_required(VERSION 3.10)
 set(PROJECT_NAME hpp_romeo)
 set(PROJECT_DESCRIPTION "Python and ros launch files for Romeo robot in hpp.")
 
-set(PROJECT_USE_CMAKE_EXPORT TRUE)
+option(BUILD_PYTHON_INTERFACE "Build the python bindings" ON)
+option(INSTALL_PYTHON_INTERFACE_ONLY "Install *ONLY* the python bindings" OFF)
+
+if(NOT INSTALL_PYTHON_INTERFACE_ONLY)
+  set(PROJECT_USE_CMAKE_EXPORT TRUE)
+endif(NOT INSTALL_PYTHON_INTERFACE_ONLY)
 
 # Check if the submodule cmake have been initialized
 set(JRL_CMAKE_MODULES "${CMAKE_CURRENT_LIST_DIR}/cmake")
@@ -46,23 +51,29 @@ include("${JRL_CMAKE_MODULES}/python.cmake")
 compute_project_args(PROJECT_ARGS LANGUAGES CXX)
 project(${PROJECT_NAME} ${PROJECT_ARGS})
 
-findpython()
+if(BUILD_PYTHON_INTERFACE)
+  findpython(REQUIRED)
+endif(BUILD_PYTHON_INTERFACE)
 
 add_project_dependency("hpp-corbaserver" REQUIRED)
 add_project_dependency("example-robot-data" REQUIRED)
 
-install(FILES src/hpp/corbaserver/romeo/robot.py
-              src/hpp/corbaserver/romeo/__init__.py
-        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/romeo)
+if(BUILD_PYTHON_INTERFACE)
+  install(FILES src/hpp/corbaserver/romeo/robot.py
+                src/hpp/corbaserver/romeo/__init__.py
+          DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/romeo)
 
-install(FILES src/hpp/corbaserver/manipulation/romeo/robot.py
-              src/hpp/corbaserver/manipulation/romeo/__init__.py
-        DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/manipulation/romeo)
+  install(FILES src/hpp/corbaserver/manipulation/romeo/robot.py
+                src/hpp/corbaserver/manipulation/romeo/__init__.py
+          DESTINATION ${PYTHON_SITELIB}/hpp/corbaserver/manipulation/romeo)
+endif()
 
-install(FILES package.xml DESTINATION share/${PROJECT_NAME})
+if(NOT INSTALL_PYTHON_INTERFACE_ONLY)
+  install(FILES package.xml DESTINATION share/${PROJECT_NAME})
 
-add_library(${PROJECT_NAME} INTERFACE)
-install(
-  TARGETS ${PROJECT_NAME}
-  EXPORT ${TARGETS_EXPORT_NAME}
-  DESTINATION lib)
+  add_library(${PROJECT_NAME} INTERFACE)
+  install(
+    TARGETS ${PROJECT_NAME}
+    EXPORT ${TARGETS_EXPORT_NAME}
+    DESTINATION lib)
+endif()
