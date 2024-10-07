@@ -25,6 +25,7 @@
           packages = {
             default = self'.packages.hpp-romeo;
             hpp-romeo = pkgs.python3Packages.hpp-romeo.overrideAttrs (_: {
+              patches = [];
               src = pkgs.lib.fileset.toSource {
                 root = ./.;
                 fileset = pkgs.lib.fileset.unions [
