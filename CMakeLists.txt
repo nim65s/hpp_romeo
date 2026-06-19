@@ -52,7 +52,6 @@ if(BUILD_PYTHON_INTERFACE)
     findpython(REQUIRED)
 endif(BUILD_PYTHON_INTERFACE)
 
-add_project_dependency("hpp-corbaserver" REQUIRED)
 add_project_dependency("example-robot-data" REQUIRED)
 
 if(BUILD_PYTHON_INTERFACE)
